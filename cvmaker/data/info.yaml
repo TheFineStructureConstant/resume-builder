@@ -1,0 +1,23 @@
+personal_info:
+    name:
+        first: Joseph
+        last: Pate
+
+    address:
+        home: 634 N O St. Livermore CA, 94551
+        work: 7000 East Ave. Livermore CA, 94551 
+        use: 'home'
+
+    clearance: 
+        agency: DOE
+        level:  Q
+        caveats: SCI
+
+    phone:
+        cell: 218-791-9884
+        office: 925-423-1289
+
+    email:
+        llnl: pate7@llnl.gov
+        personal: joseph.p.pate@gmail.com
+

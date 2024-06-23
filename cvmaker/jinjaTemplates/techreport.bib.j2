@@ -1,0 +1,29 @@
+@techreport{ {{-data.repnum}},
+    {% if data.title is not none -%} 
+    title = { {{-data.title-}} },
+    {%- else -%}
+    title = {},
+    {%- endif %}
+    {%- if data.authors is not none -%} 
+    author = { {{-data.authors-}} },
+    {%- else -%}
+    author = {},
+    {%- endif %}
+    month = { {{-data.month-}} },
+    year = { {{-data.year-}} },
+    institution = { {{-data.institution-}} },
+    number = { {{-data.repnum-}} }
+    {%- if data.sponsor is not none -%} 
+    ,
+    note = { {{-data.sponsor-}} }
+    {%- endif %}
+    {%- if data.url is not none -%} 
+    ,
+    url = { {{-data.url-}} }
+    {%- endif %}
+    {%- if data.keywords is not none -%} 
+    ,
+    keywords = { {{-data.keywords-}} }
+    {%- endif %}
+}
+

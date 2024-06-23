@@ -1,0 +1,19 @@
+education:
+    -
+        degree: M.S.
+        major: Structural Engineering
+        school: University of Minnesota
+        location: Minneapolis, MN
+        start: 2018-9
+        stop: 2020-8
+        specialization: Simulation of seismically excited structures and control of structural dynamics
+
+    - 
+        degree: B.S.
+        major:
+            - Mathematics
+            - Astrophysics
+        school: University of Minnesota
+        location: Minneapolis, MN
+        start: 2013-9
+        stop: 2018-5

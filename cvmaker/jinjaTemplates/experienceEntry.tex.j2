@@ -1,0 +1,22 @@
+{# experienceEntry.tex.j2 #}
+\experienceEntryDept
+{%- filter indent(width=4) %}
+{ {{-data['position']-}} }
+{ {{-data['dept']-}} }
+{ {{-data['inst']-}} }
+{ {{-data['location']-}} }
+{ {{-data['start']}} - {{data['stop']-}} }
+{
+{% if 'highlights' in data.keys() -%}
+
+\begin{experienceItems}
+{%- filter indent(width=4) %}
+{%- for highlight in data['highlights'] %}
+\item{ {{-highlight-}} }
+{%- endfor %}
+{% endfilter -%}
+\end{experienceItems}
+
+{%- endif %}
+}
+{%- endfilter -%}

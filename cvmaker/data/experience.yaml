@@ -1,0 +1,38 @@
+experience:
+    - 
+        inst: Lawrence Livermore National Laboratory
+        dept: Computational Engineering Division
+        position: Computational Optimization Engineer
+        location: Livermore, CA
+        start: 2022-10
+        stop: Present
+        highlights:
+            - Developed automatic multiphysics code input deck translator
+            - Developed novel simulation for NA-83
+            - Enabled GPU support in the Livermore Design Optimization Code
+
+    -
+        inst: Los Alamos National Laboratory
+        dept: X-Computational Physics Division
+        position: Staff Scientist
+        location: Los Alamos, NM
+        start: 2020-9
+        stop: 2022-10
+        highlights:
+            - Developed novel simulation capabilities for NA-83 and NA-84 programs.
+            - Implemented Target Matrix based mesh smoothing for ALE multi-material hydrodynamic simulations in the FLAG multi-physics code.
+            - Deployed Gitlab CI/CD runners for code testing and integration.
+            - Implemented NURBS interpolation capabilities for mesh generation software.
+            - Developed OpenCASCADE STEP interface for mesh generation software.
+
+    -
+        inst: University of Minnesota
+        dept: Department of Civil, Environmental, and Geo-Engineering
+        position: Graduate Research Assistant
+        start: 2018-6
+        end: 2020-8
+        location: Minneapolis, MN
+        highlights:
+            - Developed parallel multiscale finite element program using the PETSc library and MPI.
+            - Simulated building responses to seismic excitations using state space and finite element models.
+            - Developed novel methods to predict and control structural dynamics during seismic events using an optimization framework.

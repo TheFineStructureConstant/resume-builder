@@ -1,0 +1,22 @@
+{# presentationEntry.tex.j2 #}
+\presentationEntry
+{%- if 'description' not in data.keys() -%}
+No
+{%- if 'title' not in data.keys() -%}
+T
+{%- endif -%}
+D
+{%- endif %}
+{%- filter indent(width=4) %}
+{ {{-data['meeting']-}} }
+{ {{-data['inst']-}} }
+{ {{-data['authors']-}} }
+{ {{-data['location']-}} }
+{ {{-data['date']-}} }
+{%- if 'title' in data.keys() -%}
+{ {{-data['title']-}} }
+{%- endif -%}
+{%- if 'description' in data.keys() -%}
+{ {{-data['description']-}} }
+{%- endif -%}
+{%- endfilter %}

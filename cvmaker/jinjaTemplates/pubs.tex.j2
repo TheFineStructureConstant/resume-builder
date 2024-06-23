@@ -1,0 +1,17 @@
+{# env.tex.j2 #}
+{%- filter indent(width = 4*currIndent) %}
+\cvsection{ {{-secName-}} }
+{%- filter indent(width = 4) -%}
+{%- for year in data.keys() %}
+\begin{refsection}[bibFiles/{{year}}.bib]
+{%- filter indent(width = 4) %}
+\nocite{*}
+\cvsubsubsection{ {{-year-}} }
+\printbibliography[heading=none, resetnumbers={{offsets[year]}}]
+{% endfilter -%}
+\end{refsection}
+{%- endfor %}
+{% endfilter -%}
+
+{% endfilter -%}
+
