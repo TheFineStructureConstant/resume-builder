@@ -36,6 +36,6 @@ def buildResume():
         tc.compileTeX(
             'resume.tex', 
             packages = ['forestResume'],
-            texEngine = 'xelatex',
-            bibTexEngine = 'biber'
+            tex_engine = 'xelatex',
+            bibtex_engine = 'biber'
     )
