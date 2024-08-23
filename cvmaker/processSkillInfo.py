@@ -4,8 +4,11 @@ class skillInfoProcessor(baseProcessor):
     def __init__(self, var, data):
         super().__init__('skills')
         self.currIndent = 0 
+
+        self.kwds = [
+            'section_name', 'entries',
+        ]
         self.processors = {
-            'section_name': self.genericProcessor,
             'entries': self.entryProcessor
         }
 
