@@ -1,13 +1,13 @@
 @techreport{ {{-data.repnum}},
+    {% if data.authors is not none -%} 
+    author = { {{-data.authors-}} },
+    {%- else -%}
+    author = {},
+    {%- endif %}
     {% if data.title is not none -%} 
     title = { {{-data.title-}} },
     {%- else -%}
     title = {},
-    {%- endif %}
-    {%- if data.authors is not none -%} 
-    author = { {{-data.authors-}} },
-    {%- else -%}
-    author = {},
     {%- endif %}
     month = { {{-data.month-}} },
     year = { {{-data.year-}} },

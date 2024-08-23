@@ -4,14 +4,16 @@ from cvmaker.baseProcessor import baseProcessor
 class experienceInfo(baseProcessor):
     def __init__(self, data):
         super().__init__('experienceEntry')
+        
+        self.kwds = [
+            'inst', 'dept', 'position',
+            'location', 'start', 'stop',
+            'highlights',
+        ]
+
         self.processors = {
-            'inst': self.genericProcessor,
-            'dept': self.genericProcessor, 
-            'position': self.genericProcessor,
-            'location': self.genericProcessor,
             'start': self.dateProcessor,
             'stop': self.dateProcessor,
-            'highlights': self.genericProcessor
         }
 
         self.processData(data)

@@ -4,13 +4,15 @@ from cvmaker.baseProcessor import baseProcessor
 class volunteerInfo(baseProcessor):
     def __init__(self, data):
         super().__init__('volunteerEntry')
+
+        self.kwds = [
+            'name', 'org', 'location',
+            'start', 'stop', 'highlights',
+        ]
+
         self.processors = {
-            'name': self.genericProcessor,
-            'org': self.genericProcessor, 
-            'location': self.genericProcessor,
             'start': self.dateProcessor,
             'stop': self.dateProcessor,
-            'highlights': self.genericProcessor
         }
 
         self.processData(data)

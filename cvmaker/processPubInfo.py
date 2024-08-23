@@ -8,22 +8,23 @@ class pubInfoEntry(baseProcessor):
     def __init__(self, data):
         super().__init__('bibtexEntry')
         
-        print(f'In pubInfoEntry: {data}')
+        self.kwds = [
+            'template', 'date', 'authors', 'keywords', 
+            'notes', 'title', 'journal', 'volume', 
+            'number', 'url', 'repnum', 'month', 'year', 
+            'institution'
+        ]
+
         self.processors = {
-            'template': self.genericProcessor,
-            'title': self.genericProcessor,
-            'url': self.genericProcessor,
-            'repnum': self.genericProcessor,
-            'date': self.dateProcessor,
-            'month': self.genericProcessor,
-            'year': self.genericProcessor,
-            'authors': self.authorProcessor,
-            'keywords': self.keywordProcessor,
-            'institution': self.genericProcessor,
-            'notes': self.noteProcessor
+            'template':    self.templateProcessor,
+            'date':        self.dateProcessor,
+            'authors':     self.authorProcessor,
+            'keywords':    self.keywordProcessor,
+            'notes':       self.noteProcessor
         }
 
         self.processData(data)
+        self.setBibTexKeys()
 
     def __len__(self):
         return len(self.dataFields) 
@@ -71,7 +72,22 @@ class pubInfoEntry(baseProcessor):
                     if key.lower() == 'sponsor':
                         self.__dict__['sponsor'] = entry[key]
                         self.dataFields.append('sponsor')
-                    
+
+    def templateProcessor(self, **kwargs):
+        bibTemplate = kwargs['value']
+        self.__dict__['template'] = f'{bibTemplate}.bib.j2' 
+        self.dataFields.append('template')
+
+    def setBibTexKeys(self):
+        if 'article' in self['template']:
+            print(self.keys())
+            citeData = [self['authors'].split(' ')[1]]
+            for key in ['journal', 'volume', 'number', 'year']:
+                citeData.append(str(self[key]))
+
+            self.__dict__['citeKey'] = '-'.join(citeData) 
+
+            
 class pubInfoProcessor:
     def __init__(self, var, data):
 
@@ -130,6 +146,12 @@ class pubInfoProcessor:
     # write bib data to files
     def writeBibDataToFile(self):
         
+# HACK
+#        for year,data in self.data.items():
+#            print(year)
+#            print(*data)
+# HACK
+
         # create directory for the bibliographic files
         if not os.path.exists("bibFiles"):
             os.mkdir("bibFiles")
@@ -146,7 +168,6 @@ class pubInfoProcessor:
 
     # render data as a string
     def __str__(self):
-        print(self.currIndent)
         return self.jinjaTemplate.render(
                  secName = self.secName,
                  data = dict(sorted(self.data.items(), reverse = True)),

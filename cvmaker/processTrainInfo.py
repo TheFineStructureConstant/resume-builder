@@ -4,9 +4,13 @@ from cvmaker.baseProcessor import baseProcessor
 class trainingInfo(baseProcessor):
     def __init__(self, data):
         super().__init__('trainingEntry')
+
+        self.kwds = [
+            'name', 'inst', 'date',
+            'start', 'stop', 'location',
+        ]
+
         self.processors = {
-            'name': self.genericProcessor,
-            'inst': self.genericProcessor,
             'date': self.dateProcessor,
             'start': self.dateProcessor,
             'stop': self.dateProcessor,

@@ -9,6 +9,7 @@ from cvmaker.utils import dateLookUp
 class baseProcessor:
     def __init__(self, templateName):
         self.dataFields = []
+        self.processors = {}
 
         cwd = Path(os.path.dirname(os.path.realpath(__file__)))
         jinjaDir = cwd / "jinjaTemplates"
@@ -29,9 +30,14 @@ class baseProcessor:
     # process data
     def processData(self, data):
         for val in data.keys():
-            if val not in self.processors:
+            if val not in self.kwds:
                 continue
-            self.processors[val](value = data[val], key = val)
+
+            procMethod = self.genericProcessor
+            if val in self.processors.keys():
+                procMethod = self.processors[val]
+
+            procMethod(value = data[val], key = val)
 
     # basic processor to be shared across the specialized processors
     def genericProcessor(self, **kwargs):

@@ -1,0 +1,17 @@
+@article{ {{-data.citeKey}},
+    {% if data.authors is not none -%} 
+    author = { {{-data.authors-}} },
+    {%- else -%}
+    author = {},
+    {%- endif %}
+    {% if data.title is not none -%} 
+    title = { {{-data.title-}} },
+    {%- else -%}
+    title = {},
+    {%- endif %}
+    year = { {{-data.year-}} },
+    volume = { {{-data.volume-}} },
+    number = { {{-data.number-}} },
+    journal = { {{-data.journal-}} },
+}
+

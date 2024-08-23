@@ -6,10 +6,14 @@ class personalInfoProcessor(baseProcessor):
     def __init__(self, var, data):
         super().__init__(var)
 
+        self.kwds = [
+            'name', 'address', 'position', 
+            'clearance', 'phone', 'email',
+        ]
+
         self.processors = {
             'name': self.processName,
             'address': self.processAddress,
-            'position': self.genericProcessor,
             'clearance': self.processClearance,
             'phone': self.processPhone,
             'email': self.processEmail,

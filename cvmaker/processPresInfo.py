@@ -4,14 +4,15 @@ from cvmaker.baseProcessor import baseProcessor
 class presentationInfo(baseProcessor):
     def __init__(self, data):
         super().__init__('presentationEntry')
+
+        self.kwds = [
+            'meeting', 'inst', 'authors', 'location', 
+            'date', 'title', 'description',
+        ]
+
         self.processors = {
-            'meeting': self.genericProcessor,
-            'inst': self.genericProcessor,
             'authors': self.authorProcessor,
-            'location': self.genericProcessor,
             'date': self.dateProcessor,
-            'title': self.genericProcessor,
-            'description': self.genericProcessor,
         }
         
         self.processData(data)

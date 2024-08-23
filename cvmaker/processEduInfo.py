@@ -4,14 +4,16 @@ from cvmaker.baseProcessor import baseProcessor
 class educationInfo(baseProcessor):
     def __init__(self, data):
         super().__init__('educationEntry')
+
+        self.kwds = [
+            'degree', 'school', 'location', 'start',
+            'stop', 'end', 'specialization', 'major',
+        ]
+
         self.processors = {
-            'degree': self.genericProcessor,
-            'school': self.genericProcessor,
-            'location': self.genericProcessor,
             'start': self.dateProcessor,
             'stop': self.dateProcessor,
             'end': self.dateProcessor,
-            'specialization': self.genericProcessor,
             'major': self.majorProcessor,
         }
 
