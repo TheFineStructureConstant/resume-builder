@@ -1,4 +1,4 @@
-#!/bin/env python3
+#!/usr/bin/env python3
 import cvmaker
 
 if __name__ == "__main__":
