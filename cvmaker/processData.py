@@ -101,9 +101,10 @@ class dataHandler:
                 firstPart += "             backend=biber,\n"
                 firstPart += "             defernumbers=true,\n"
                 firstPart += "             sorting=ydnt,\n"
+                firstPart += "             articletitle=true,\n"
                 firstPart += "             sortcites=true]{biblatex}\n\n"
                 firstPart += "\\renewcommand*{\\bibfont}{\\bodyfont\small}\n\n"
-
+ 
 
             # add personal info to first part
             firstPart += "% Define Personal Information\n"
