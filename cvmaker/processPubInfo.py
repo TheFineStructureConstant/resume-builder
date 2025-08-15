@@ -12,7 +12,7 @@ class pubInfoEntry(baseProcessor):
             'template', 'date', 'authors', 'keywords', 
             'notes', 'title', 'journal', 'volume', 
             'number', 'url', 'repnum', 'month', 'year', 
-            'institution'
+            'institution', 'school', 'thesis_type', 'tag'
         ]
 
         self.processors = {
